@@ -14,9 +14,11 @@ namespace HiddenObjectGame.Runtime.Services
         [SerializeField] private List<HiddenObjectView> _hiddenObjectViews = new();
         public Dictionary<HiddenObjectType, int> NeedToFoundObjects { get; } = new();
         private HiddenObjectSaveData _saveData;
-        public ReactiveProperty<bool> Initialized = new(false);
+        public ReactiveProperty<bool> Initialized { get; } = new(false);
 
-        public event Action OnFoundedObject;
+        public event Action<HiddenObjectType, int> OnFoundedObject;
+        public ReactiveProperty<bool> OnAllFounded { get; } = new(false);
+
         [Inject]
         private void Construct(HiddenObjectSaveData saveData)
         {
@@ -38,7 +40,15 @@ namespace HiddenObjectGame.Runtime.Services
             {
                 Debug.Log(needToFoundObject.Key + " " + needToFoundObject.Value);
             }
+
+            Initialized.Value = true;
+
+            if (NeedToFoundObjects.Count == 0)
+            {
+                OnAllFounded.Value = true;
+            }
         }
+
 
         public void AddFoundedObject(HiddenObjectType objectType)
         {
@@ -46,13 +56,14 @@ namespace HiddenObjectGame.Runtime.Services
             NeedToFoundObjects[objectType] = val;
             if (val <= 0)
             {
-                Debug.Log("Founded " + objectType);
                 NeedToFoundObjects.Remove(objectType);
                 if (NeedToFoundObjects.Count == 0)
                 {
-                    Debug.Log("Founded All");
+                    OnAllFounded.Value = true;
                 }
             }
+
+            OnFoundedObject?.Invoke(objectType, val);
         }
 
         private void DestroyFoundedObjects()
@@ -62,7 +73,7 @@ namespace HiddenObjectGame.Runtime.Services
             {
                 var foundedObject = _saveData.FoundedObjects.Any(id =>
                 {
-                    if (id == hiddenObjectView.gameObject.GetInstanceID())
+                    if (id == hiddenObjectView.GetID())
                     {
                         return true;
                     }

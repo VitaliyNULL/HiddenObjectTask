@@ -7,7 +7,7 @@ namespace HiddenObjectGame.Runtime.Services
     [Serializable]
     public class HiddenObjectSaveData
     {
-        public List<int> FoundedObjects = new List<int>();
+        public List<string> FoundedObjects = new List<string>();
         private const string DataKey = "HiddenObjectCollectService";
 
         public void Save()
@@ -16,7 +16,7 @@ namespace HiddenObjectGame.Runtime.Services
             PlayerPrefs.SetString(DataKey, json);
         }
 
-        public void AddFoundedObject(int id)
+        public void AddFoundedObject(string id)
         {
             FoundedObjects.Add(id);
             Save();

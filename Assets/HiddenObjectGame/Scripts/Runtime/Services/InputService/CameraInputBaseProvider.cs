@@ -8,12 +8,12 @@ namespace HiddenObjectGame.Runtime.Services.InputService
         protected float CameraSpeed { get; }
         protected bool MoveAllowed;
         protected Vector3 TouchPos;
-        protected readonly float LeftLimit;
-        protected readonly float RightLimit;
-        protected readonly float TopLimit;
-        protected readonly float BottomLimit;
-        protected readonly float ZoomMin;
-        protected readonly float ZoomMax;
+        protected float LeftLimit;
+        protected float RightLimit;
+        protected float TopLimit;
+        protected float BottomLimit;
+        protected float ZoomMin;
+        protected float ZoomMax;
 
         protected CameraInputBaseProvider(float cameraSpeed, float leftLimit, float rightLimit, float topLimit,
             float bottomLimit, float zoomMin, float zoomMax)

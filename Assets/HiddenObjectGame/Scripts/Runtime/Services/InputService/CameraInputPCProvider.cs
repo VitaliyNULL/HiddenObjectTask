@@ -9,10 +9,21 @@ namespace HiddenObjectGame.Runtime.Services
         private float _scrollValue;
         private readonly float _zoomSpeed = 40f;
 
+        private readonly float _initialZoom;
+        private readonly float _initialLeftLimit;
+        private readonly float _initialRightLimit;
+        private readonly float _initialTopLimit;
+        private readonly float _initialBottomLimit;
+
         public CameraInputPCProvider(float cameraSpeed, float leftLimit, float rightLimit, float topLimit,
             float bottomLimit, float zoomMin, float zoomMax) : base(cameraSpeed, leftLimit, rightLimit, topLimit,
             bottomLimit, zoomMin, zoomMax)
         {
+            _initialZoom = Camera.orthographicSize;
+            _initialLeftLimit = leftLimit;
+            _initialRightLimit = rightLimit;
+            _initialTopLimit = topLimit;
+            _initialBottomLimit = bottomLimit;
         }
 
         public override void ProcessInput()
@@ -33,7 +44,12 @@ namespace HiddenObjectGame.Runtime.Services
         {
             Vector3 mouseWorldPosBeforeZoom = Camera.ScreenToWorldPoint(Input.mousePosition);
             float newSize = Mathf.Clamp(Camera.orthographicSize - _scrollValue * _zoomSpeed, ZoomMin, ZoomMax);
+            float zoomRatio = _initialZoom / newSize;
             Camera.orthographicSize = newSize;
+            LeftLimit = _initialLeftLimit * zoomRatio;
+            RightLimit = _initialRightLimit * zoomRatio;
+            TopLimit = _initialTopLimit * zoomRatio;
+            BottomLimit = _initialBottomLimit * zoomRatio;
             Vector3 mouseWorldPosAfterZoom = Camera.ScreenToWorldPoint(Input.mousePosition);
             Vector3 offset = mouseWorldPosBeforeZoom - mouseWorldPosAfterZoom;
             Camera.transform.position += offset;
@@ -42,6 +58,7 @@ namespace HiddenObjectGame.Runtime.Services
             cameraPosition.y = Mathf.Clamp(cameraPosition.y, BottomLimit, TopLimit);
             Camera.transform.position = cameraPosition;
         }
+
 
         protected override void Move()
         {

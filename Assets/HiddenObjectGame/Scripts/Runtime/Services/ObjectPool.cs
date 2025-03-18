@@ -20,9 +20,15 @@ namespace HiddenObjectGame.Runtime.Services
             for (int i = 0; i < initialSize; i++)
             {
                 var instance = Object.Instantiate(prefab);
+                InitializePoolObject(instance);
                 instance.gameObject.SetActive(false);
                 _pool.Enqueue(instance);
             }
+        }
+
+        protected virtual void InitializePoolObject(T instance)
+        {
+            
         }
 
         public T Get()

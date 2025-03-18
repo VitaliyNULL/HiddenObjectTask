@@ -10,9 +10,11 @@ namespace HiddenObjectGame.Runtime.Services
         [SerializeField] private Image _image;
         [SerializeField] private TMP_Text _text;
         public HiddenObjectType HiddenObjectType { get; private set; }
-        private HiddenObjectCollectService _hiddenObjectCollectService;
+        private IHiddenObjectCollectService _hiddenObjectCollectService;
 
-        public void SetData(HiddenObjectCollectService hiddenObjectCollectService, Sprite sprite, HiddenObjectType type,
+        private int _count;
+        public void SetData(IHiddenObjectCollectService hiddenObjectCollectService, Sprite sprite,
+            HiddenObjectType type,
             int count)
         {
             HiddenObjectType = type;
@@ -22,12 +24,20 @@ namespace HiddenObjectGame.Runtime.Services
             _hiddenObjectCollectService.OnFoundedObject += OnFoundedObject;
         }
 
-        private void OnFoundedObject()
+        private void OnFoundedObject(HiddenObjectType type, int count)
         {
-            if (_hiddenObjectCollectService.NeedToFoundObjects.TryGetValue(HiddenObjectType, out int count))
+            if (type != HiddenObjectType) return;
+            _count = count;
+        }
+
+        public void CompleteObjectCollection()
+        {
+            if (_count <= 0)
             {
-                _text.text = count.ToString();
+                Destroy(gameObject);
+                return;
             }
+            _text.text = _count.ToString();
         }
     }
 }

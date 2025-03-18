@@ -43,5 +43,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: AboveUI
+    uniqueID: 1558882085
+    locked: 0
   m_RenderingLayers:
   - Default
