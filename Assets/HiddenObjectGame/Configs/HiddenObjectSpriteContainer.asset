@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d4bbd10d604e65badcd00b99383f5d, type: 3}
+  m_Name: HiddenObjectSpriteContainer
+  m_EditorClassIdentifier: 
+  <SerializedDictionary>k__BackingField:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 8195414772021345536, guid: 44ecb623b0dae8e42ae29c952ad0e9e0, type: 3}
+    - Key: 2
+      Value: {fileID: 6851516874033760769, guid: f8624d4b9dcc47e498a1d2a8ef3efaeb, type: 3}
+    - Key: 3
+      Value: {fileID: -1621258052824691434, guid: 960513b9659295548a9c26e6582523a5, type: 3}
+    - Key: 4
+      Value: {fileID: -6511930780126682386, guid: 7a960826e285ddd4aa0143801d5799f6, type: 3}
+    - Key: 5
+      Value: {fileID: -2565824826387920281, guid: 679cebf31e51bac4ab4aaf32d8e33a36, type: 3}
+    - Key: 6
+      Value: {fileID: -8149544861399211107, guid: ab6ab91e0ef007b42bac08a1ad74a8ec, type: 3}

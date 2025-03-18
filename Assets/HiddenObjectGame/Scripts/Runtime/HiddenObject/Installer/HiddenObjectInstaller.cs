@@ -6,15 +6,14 @@ using Zenject;
 
 namespace HiddenObjectGame.Runtime.HiddenObject.Installer
 {
-    [CreateAssetMenu(fileName = "HiddenObjectInstaller",
-        menuName = "HiddenObjectGame/Installers/HiddenObjectInstaller")]
-    public class HiddenObjectInstaller : ScriptableObjectInstaller
+
+    public class HiddenObjectInstaller : MonoInstaller
     {
-        [SerializeField] private string _hiddenObjectName;
+        [SerializeField] private HiddenObjectType _hiddenObjectType;
 
         public override void InstallBindings()
         {
-            Container.Bind<IHiddenObjectModel>().FromInstance(new HiddenObjectModel(_hiddenObjectName)).AsSingle();
+            Container.Bind<IHiddenObjectModel>().FromInstance(new HiddenObjectModel(_hiddenObjectType)).AsSingle();
             Container.Bind<IHiddenObjectViewModel>().To<HiddenObjectViewModel>().AsSingle();
         }
     }

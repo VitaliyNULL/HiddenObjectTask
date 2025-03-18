@@ -3,15 +3,17 @@ using Zenject;
 
 namespace HiddenObjectGame.Runtime.Services
 {
-    [CreateAssetMenu(fileName = "GameInstaller", menuName = "HiddenObjectGame/Installers/GameInstaller")]
-    public class GameInstaller : ScriptableObjectInstaller
+    public class GameInstaller : MonoInstaller
     {
         [SerializeField] private LayerMask _hiddenObjectLayer;
+        [SerializeField] private HiddenObjectCollectService _hiddenObjectCollectService;
 
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<HiddenObjectInputService>()
                 .FromInstance(new HiddenObjectInputService(_hiddenObjectLayer)).AsSingle();
+            Container.Bind<IHiddenObjectCollectService>().FromInstance(_hiddenObjectCollectService).AsSingle();
+            Container.Bind<HiddenObjectSaveData>().AsSingle();
         }
     }
 }
