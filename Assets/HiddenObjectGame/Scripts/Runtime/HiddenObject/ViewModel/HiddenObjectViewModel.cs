@@ -8,11 +8,12 @@ namespace HiddenObjectGame.Runtime.HiddenObject.ViewModel
     public class HiddenObjectViewModel : IHiddenObjectViewModel, IDisposable
     {
         private readonly IHiddenObjectModel _model;
+        private readonly CompositeDisposable _disposable = new();
 
         public HiddenObjectViewModel(IHiddenObjectModel model)
         {
             _model = model;
-            _model.IsFounded.Subscribe(OnFounded);
+            _model.IsFounded.Subscribe(OnFounded).AddTo(_disposable);
         }
 
         private void OnFounded(bool isFounded)
@@ -25,6 +26,7 @@ namespace HiddenObjectGame.Runtime.HiddenObject.ViewModel
 
         public void Dispose()
         {
+            _disposable?.Dispose();
         }
 
         public void OnClicked()
