@@ -15,7 +15,12 @@ namespace HiddenObjectGame.Runtime.HiddenObject.View
         [SerializeField] private string _uniqueID;
 
         public string GetID() => _uniqueID;
-        
+
+
+        private void OnValidate()
+        {
+            GuidGenerator.TryGenerateGuid(ref _uniqueID);
+        }
 
         private void Awake()
         {
