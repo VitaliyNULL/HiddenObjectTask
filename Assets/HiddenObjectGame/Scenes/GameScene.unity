@@ -1439,7 +1439,7 @@ MonoBehaviour:
   _hiddenObjectLayer:
     serializedVersion: 2
     m_Bits: 64
-  _hiddenObjectCollectService: {fileID: 1590894753}
+  _hiddenObjectCollectViewModel: {fileID: 1590894753}
   _vfxService: {fileID: 1181073584}
   _hiddenObjectCollectView: {fileID: 1786522749}
 --- !u!1 &1030300680
@@ -2098,7 +2098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _content: {fileID: 1689203265}
-  _hiddenObjectUIPrefab: {fileID: 1628619247772856558, guid: 47102bc30dbc872429ad70a18e94eb14, type: 3}
+  _hiddenObjectEntityViewPrefab: {fileID: 1628619247772856558, guid: 47102bc30dbc872429ad70a18e94eb14, type: 3}
   _hiddenObjectSpriteContainer: {fileID: 11400000, guid: babdef85ff7bcf143972c333e69e86ec, type: 2}
 --- !u!1001 &1801396242
 PrefabInstance:

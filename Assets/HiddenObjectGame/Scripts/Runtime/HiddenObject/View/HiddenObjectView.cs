@@ -1,6 +1,7 @@
-using System;
 using HiddenObjectGame.Runtime.HiddenObject.Interface;
-using HiddenObjectGame.Runtime.Services;
+using HiddenObjectGame.Runtime.HiddenObjectCollect;
+using HiddenObjectGame.Runtime.Utilities;
+using HiddenObjectGame.Runtime.VFX;
 using R3;
 using UnityEngine;
 using Zenject;
@@ -13,9 +14,7 @@ namespace HiddenObjectGame.Runtime.HiddenObject.View
         private readonly CompositeDisposable _compositeDisposable = new();
         private Camera _camera;
         [SerializeField] private string _uniqueID;
-
         public string GetID() => _uniqueID;
-
 
         private void OnValidate()
         {
@@ -28,25 +27,25 @@ namespace HiddenObjectGame.Runtime.HiddenObject.View
         }
 
         [Inject]
-        private void Construct(IHiddenObjectViewModel viewModel, HiddenObjectSaveData saveData,
+        private void Construct(IHiddenObjectViewModel viewModel, IHiddenObjectCollectModel collectModel,
             HiddenObjectCollectView hiddenObjectCollectView, VFXService vfxService)
         {
             _viewModel = viewModel;
             _viewModel.IsFounded
-                .Subscribe((isFounded) => State(isFounded, saveData, hiddenObjectCollectView, vfxService))
+                .Subscribe((isFounded) => State(isFounded, collectModel, hiddenObjectCollectView, vfxService))
                 .AddTo(_compositeDisposable);
         }
 
-        private void State(bool isFounded, HiddenObjectSaveData saveData,
+        private void State(bool isFounded, IHiddenObjectCollectModel collectModel,
             HiddenObjectCollectView hiddenObjectCollectView, VFXService vfxService)
         {
             if (isFounded)
             {
-                saveData.AddFoundedObject(_uniqueID);
+                collectModel.AddFoundedObject(_uniqueID);
                 var type = _viewModel.GetObjectType();
                 var startPos = transform.position;
                 var hiddenObjectUI = hiddenObjectCollectView.GetHiddenObjectUI(_viewModel.GetObjectType());
-                vfxService.SpawnVFX(type, startPos, hiddenObjectUI.transform,
+                vfxService.SpawnVFX(type, startPos, hiddenObjectUI.GetTransform(),
                     () => hiddenObjectUI.CompleteObjectCollection());
                 Destroy(gameObject);
             }

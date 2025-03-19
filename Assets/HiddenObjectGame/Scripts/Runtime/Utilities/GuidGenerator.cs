@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace HiddenObjectGame.Runtime.Services
+namespace HiddenObjectGame.Runtime.Utilities
 {
     public static class GuidGenerator
     {

@@ -1,6 +1,6 @@
 using System;
 using HiddenObjectGame.Runtime.HiddenObject.Interface;
-using HiddenObjectGame.Runtime.Services;
+using HiddenObjectGame.Runtime.HiddenObjectCollect;
 using R3;
 
 namespace HiddenObjectGame.Runtime.HiddenObject.ViewModel
@@ -13,7 +13,7 @@ namespace HiddenObjectGame.Runtime.HiddenObject.ViewModel
         public ReactiveProperty<bool> IsFounded { get; } =
             new(false);
 
-        public HiddenObjectViewModel(IHiddenObjectModel model, IHiddenObjectCollectService collectService)
+        public HiddenObjectViewModel(IHiddenObjectModel model, IHiddenObjectCollectViewModel collectViewModel)
         {
             _model = model;
             _model.IsFounded.Subscribe((isFounded) =>
@@ -21,7 +21,7 @@ namespace HiddenObjectGame.Runtime.HiddenObject.ViewModel
                 if (isFounded)
                 {
                     IsFounded.Value = true;
-                    collectService.AddFoundedObject(_model.ObjectType);
+                    collectViewModel.AddFoundedObject(_model.ObjectType);
                 }
             }).AddTo(_disposable);
         }
