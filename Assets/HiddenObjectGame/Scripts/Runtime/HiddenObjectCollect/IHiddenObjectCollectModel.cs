@@ -1,14 +1,11 @@
-using System.Collections.Generic;
+using ObservableCollections;
 
 namespace HiddenObjectGame.Runtime.HiddenObjectCollect
 {
     public interface IHiddenObjectCollectModel
     {
-        public List<string> FoundedObjects { get; }
-        public void Save();
-        public void Load();
+        public ObservableList<string> FoundedObjects { get; }
         public void AddFoundedObject(string id);
+        
     }
-
-    
 }

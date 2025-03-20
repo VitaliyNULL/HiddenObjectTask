@@ -21,6 +21,7 @@ namespace HiddenObjectGame.Runtime.Installers
             Container.Bind<IHiddenObjectCollectModel>().To<HiddenObjectCollectModel>().AsSingle();
             Container.Bind<VFXService>().FromInstance(_vfxService).AsSingle();
             Container.Bind<HiddenObjectCollectView>().FromInstance(_hiddenObjectCollectView).AsSingle();
+            Container.BindInterfacesAndSelfTo<SaveLoadCollectModelService>().AsSingle();
         }
     }
 }

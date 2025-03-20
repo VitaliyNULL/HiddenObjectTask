@@ -26,7 +26,6 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
 
         private void Awake()
         {
-            _collectModel.Load();
             DestroyFoundedObjects();
             foreach (var hiddenObjectView in _hiddenObjectViews)
             {
