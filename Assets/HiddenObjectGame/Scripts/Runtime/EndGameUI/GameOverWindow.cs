@@ -9,7 +9,7 @@ using Zenject;
 
 namespace HiddenObjectGame.Runtime.EndGameUI
 {
-    public class GameOverView : MonoBehaviour
+    public class GameOverWindow : MonoBehaviour
     {
         [SerializeField] private Image _image;
         [SerializeField] private Transform _popUp;

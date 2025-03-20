@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace HiddenObjectGame.Runtime.EndGameUI
 {
-    public class RestartGame : MonoBehaviour
+    public class RestartGameButton : MonoBehaviour
     {
         [SerializeField] private Button _button;
 
@@ -21,8 +21,6 @@ namespace HiddenObjectGame.Runtime.EndGameUI
             });
         }
 
-        
-        
 
         private void OnDestroy()
         {

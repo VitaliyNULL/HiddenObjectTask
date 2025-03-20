@@ -6,25 +6,27 @@ using HiddenObjectGame.Runtime.HiddenObject.View;
 using R3;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace HiddenObjectGame.Runtime.HiddenObjectCollect
 {
-    public class HiddenObjectCollectViewModel : MonoBehaviour, IHiddenObjectCollectViewModel
+    public class HiddenObjectCollectViewModel : IHiddenObjectCollectViewModel, IInitializable
     {
-        [SerializeField] private List<HiddenObjectView> _hiddenObjectViews = new();
+        private List<HiddenObjectView> _hiddenObjectViews;
         public Dictionary<HiddenObjectType, int> NeedToFoundObjects { get; } = new();
         public ReactiveProperty<bool> Initialized { get; } = new(false);
         public event Action<HiddenObjectType, int> OnFoundedObject;
         public ReactiveProperty<bool> OnAllFounded { get; } = new(false);
-        private IHiddenObjectCollectModel _collectModel;
+        private readonly IHiddenObjectCollectModel _collectModel;
 
-        [Inject]
-        private void Construct(IHiddenObjectCollectModel collectModel)
+        public HiddenObjectCollectViewModel(IHiddenObjectCollectModel collectModel,
+            List<HiddenObjectView> hiddenObjectViews)
         {
             _collectModel = collectModel;
+            _hiddenObjectViews = hiddenObjectViews;
         }
 
-        private void Awake()
+        public void Initialize()
         {
             DestroyFoundedObjects();
             foreach (var hiddenObjectView in _hiddenObjectViews)
@@ -46,7 +48,6 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
                 OnAllFounded.Value = true;
             }
         }
-
 
         public void AddFoundedObject(HiddenObjectType objectType)
         {
@@ -81,7 +82,7 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
                 if (foundedObject)
                 {
                     list.Remove(hiddenObjectView);
-                    Destroy(hiddenObjectView.gameObject);
+                    Object.Destroy(hiddenObjectView.gameObject);
                 }
             }
 

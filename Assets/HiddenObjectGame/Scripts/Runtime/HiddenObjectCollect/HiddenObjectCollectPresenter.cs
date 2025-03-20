@@ -8,7 +8,7 @@ using Zenject;
 
 namespace HiddenObjectGame.Runtime.HiddenObjectCollect
 {
-    public class HiddenObjectCollectView : MonoBehaviour
+    public class HiddenObjectCollectPresenter : MonoBehaviour
     {
         [SerializeField] private Transform _content;
         [SerializeField] private HiddenObjectEntityView _hiddenObjectEntityViewPrefab;

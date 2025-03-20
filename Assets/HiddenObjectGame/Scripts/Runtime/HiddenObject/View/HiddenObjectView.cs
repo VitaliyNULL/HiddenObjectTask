@@ -28,23 +28,23 @@ namespace HiddenObjectGame.Runtime.HiddenObject.View
 
         [Inject]
         private void Construct(IHiddenObjectViewModel viewModel, IHiddenObjectCollectModel collectModel,
-            HiddenObjectCollectView hiddenObjectCollectView, VFXService vfxService)
+            HiddenObjectCollectPresenter hiddenObjectCollectPresenter, VFXService vfxService)
         {
             _viewModel = viewModel;
             _viewModel.IsFounded
-                .Subscribe((isFounded) => State(isFounded, collectModel, hiddenObjectCollectView, vfxService))
+                .Subscribe((isFounded) => State(isFounded, collectModel, hiddenObjectCollectPresenter, vfxService))
                 .AddTo(_compositeDisposable);
         }
 
         private void State(bool isFounded, IHiddenObjectCollectModel collectModel,
-            HiddenObjectCollectView hiddenObjectCollectView, VFXService vfxService)
+            HiddenObjectCollectPresenter hiddenObjectCollectPresenter, VFXService vfxService)
         {
             if (isFounded)
             {
                 collectModel.AddFoundedObject(_uniqueID);
                 var type = _viewModel.GetObjectType();
                 var startPos = transform.position;
-                var hiddenObjectUI = hiddenObjectCollectView.GetHiddenObjectUI(_viewModel.GetObjectType());
+                var hiddenObjectUI = hiddenObjectCollectPresenter.GetHiddenObjectUI(_viewModel.GetObjectType());
                 vfxService.SpawnVFX(type, startPos, hiddenObjectUI.GetTransform(),
                     () => hiddenObjectUI.CompleteObjectCollection()).Forget();
                 Destroy(gameObject);
