@@ -18,17 +18,25 @@ namespace HiddenObjectGame.Runtime.EndGameUI
         private IDisposable _disposable;
         private Color _initialColor;
         private CancellationTokenSource _cancellationTokenSource;
+        private IHiddenObjectCollectViewModel _hiddenObjectCollectViewModel;
 
         [Inject]
         private void Construct(IHiddenObjectCollectViewModel hiddenObjectCollectViewModel)
         {
-            _disposable = hiddenObjectCollectViewModel.OnAllFounded.Subscribe((allFounded =>
-            {
-                if (allFounded) ShowPopUp().Forget();
-            }));
+            _hiddenObjectCollectViewModel = hiddenObjectCollectViewModel;
             _initialColor = _image.color;
         }
 
+        private void Awake()
+        {
+            Debug.Log("Awake");
+            gameObject.SetActive(false);
+            _disposable = _hiddenObjectCollectViewModel.OnAllFounded.Subscribe((allFounded =>
+            {
+                if (allFounded) ShowPopUp().Forget();
+            }));
+        }
+        
         private async UniTaskVoid ShowPopUp()
         {
             _cancellationTokenSource = new CancellationTokenSource();

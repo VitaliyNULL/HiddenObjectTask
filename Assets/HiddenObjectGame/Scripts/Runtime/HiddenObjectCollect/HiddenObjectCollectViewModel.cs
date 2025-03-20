@@ -28,6 +28,7 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
 
         public void Initialize()
         {
+            Debug.Log("Initialize");
             DestroyFoundedObjects();
             foreach (var hiddenObjectView in _hiddenObjectViews)
             {

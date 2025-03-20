@@ -25,10 +25,8 @@ namespace HiddenObjectGame.Runtime.VFX
 
         private async UniTaskVoid Initialize()
         {
-            Debug.Log(_assetReference);
             var loadAsset = Addressables.LoadAssetAsync<GameObject>(_assetReference);
             await loadAsset;
-            Debug.Log($"Loaded asset {loadAsset.IsDone} : {loadAsset.Result}");
             T prefab = loadAsset.Result.GetComponent<T>();
             for (int i = 0; i < _initialSize; i++)
             {
