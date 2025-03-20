@@ -1,11 +1,11 @@
-using BGGames.Runtime.Infrastructure.Core;
-using BGGames.Runtime.Infrastructure.Interfaces;
-using BGGames.Runtime.Loading.Core;
-using BGGames.Runtime.Loading.Interfaces;
+using HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core;
+using HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Interfaces;
+using HiddenObjectGame.LoadingModule.Runtime.Loading.Core;
+using HiddenObjectGame.LoadingModule.Runtime.Loading.Interfaces;
 using UnityEngine;
 using Zenject;
 
-namespace BGGames.Runtime.Infrastructure.Installers
+namespace HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Installers
 {
     [CreateAssetMenu(fileName = "ProjectLifetimeScope", menuName = "Installers/ProjectLifetimeScope")]
     public class ProjectLifetimeScope : ScriptableObjectInstaller

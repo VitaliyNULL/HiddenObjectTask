@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace HiddenObjectGame.LoadingModule.Editor
 {
     public class ClearAddressablesCache : UnityEditor.Editor
     {

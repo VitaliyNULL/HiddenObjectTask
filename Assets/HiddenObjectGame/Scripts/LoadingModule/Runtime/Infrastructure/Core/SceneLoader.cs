@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
-using BGGames.Runtime.Infrastructure.Interfaces;
 using Cysharp.Threading.Tasks;
+using HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Interfaces;
 using UnityEngine.AddressableAssets;
 
-namespace BGGames.Runtime.Infrastructure.Core
+namespace HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core
 {
     public class SceneLoader : ISceneLoader
     {

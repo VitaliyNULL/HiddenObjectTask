@@ -1,9 +1,9 @@
-using BGGames.Runtime.Loading.Interfaces;
+using HiddenObjectGame.LoadingModule.Runtime.Loading.Interfaces;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace BGGames.Runtime.Loading.View
+namespace HiddenObjectGame.LoadingModule.Runtime.Loading.View
 {
     public abstract class BaseLoadingView : MonoBehaviour
     {

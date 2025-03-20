@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace BGGames.Runtime.Loading.Operations
+namespace HiddenObjectGame.LoadingModule.Runtime.Loading.Operations
 {
     public class LoadAddressablesOperation : BaseLoadingOperation
     {

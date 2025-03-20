@@ -1,8 +1,8 @@
 using System;
-using BGGames.Runtime.Loading.Interfaces;
 using Cysharp.Threading.Tasks;
+using HiddenObjectGame.LoadingModule.Runtime.Loading.Interfaces;
 
-namespace BGGames.Runtime.Loading.Operations
+namespace HiddenObjectGame.LoadingModule.Runtime.Loading.Operations
 {
     public abstract class BaseLoadingOperation: ILoadingOperation
     {

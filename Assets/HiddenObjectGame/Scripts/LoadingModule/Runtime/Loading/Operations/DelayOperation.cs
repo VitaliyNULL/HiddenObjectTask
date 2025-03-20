@@ -1,7 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 
-namespace BGGames.Runtime.Loading.Operations
+namespace HiddenObjectGame.LoadingModule.Runtime.Loading.Operations
 {
     public class DelayOperation : BaseLoadingOperation
     {

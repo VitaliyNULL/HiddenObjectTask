@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
-using BGGames.Runtime.Infrastructure.Core;
-using BGGames.Runtime.Infrastructure.Interfaces;
 using Cysharp.Threading.Tasks;
+using HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core;
+using HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Interfaces;
 
-namespace BGGames.Runtime.Loading.Operations
+namespace HiddenObjectGame.LoadingModule.Runtime.Loading.Operations
 {
     public class LoadSceneOperation : BaseLoadingOperation
     {

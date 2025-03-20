@@ -1,7 +1,7 @@
-using BGGames.Runtime.Infrastructure.Core;
 using Cysharp.Threading.Tasks;
+using HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core;
 
-namespace BGGames.Runtime.Infrastructure.Interfaces
+namespace HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Interfaces
 {
     public interface ISceneLoader
     {

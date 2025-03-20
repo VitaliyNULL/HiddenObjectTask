@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using BGGames.Runtime.Loading.Interfaces;
 using Cysharp.Threading.Tasks;
+using HiddenObjectGame.LoadingModule.Runtime.Loading.Interfaces;
 
-namespace BGGames.Runtime.Loading.Core
+namespace HiddenObjectGame.LoadingModule.Runtime.Loading.Core
 {
     public class LoadingController : ILoadingController
     {

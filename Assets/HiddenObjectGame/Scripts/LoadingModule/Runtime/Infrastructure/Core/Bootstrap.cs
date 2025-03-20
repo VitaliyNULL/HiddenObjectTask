@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using BGGames.Runtime.Infrastructure.Interfaces;
-using BGGames.Runtime.Loading.Interfaces;
-using BGGames.Runtime.Loading.Operations;
+using HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Interfaces;
+using HiddenObjectGame.LoadingModule.Runtime.Loading.Interfaces;
+using HiddenObjectGame.LoadingModule.Runtime.Loading.Operations;
 using Zenject;
 
-namespace BGGames.Runtime.Infrastructure.Core
+namespace HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core
 {
     public class Bootstrap : IInitializable
     {

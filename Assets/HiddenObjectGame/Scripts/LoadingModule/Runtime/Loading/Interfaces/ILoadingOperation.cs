@@ -1,7 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 
-namespace BGGames.Runtime.Loading.Interfaces
+namespace HiddenObjectGame.LoadingModule.Runtime.Loading.Interfaces
 {
     public interface ILoadingOperation
     {

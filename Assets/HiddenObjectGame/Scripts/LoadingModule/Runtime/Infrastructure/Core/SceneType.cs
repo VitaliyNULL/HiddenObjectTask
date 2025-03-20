@@ -1,4 +1,4 @@
-namespace BGGames.Runtime.Infrastructure.Core
+namespace HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core
 {
     public enum SceneType
     {

@@ -1,9 +1,8 @@
-using BGGames.Runtime.Infrastructure.Core;
+using HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using Zenject;
 
-namespace BGGames.Runtime.Infrastructure.Installers
+namespace HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Installers
 {
     [CreateAssetMenu(fileName = "BootstrapInstaller", menuName = "Installers/BootstrapInstaller")]
     public class BootstrapInstaller : ScriptableObjectInstaller

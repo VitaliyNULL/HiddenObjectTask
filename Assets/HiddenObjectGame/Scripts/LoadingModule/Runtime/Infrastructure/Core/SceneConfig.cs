@@ -2,7 +2,7 @@ using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace BGGames.Runtime.Infrastructure.Core
+namespace HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core
 {
     [CreateAssetMenu(fileName = "SceneConfig", menuName = "TopDownSurvivor/Configs/SceneConfig")]
     public class SceneConfig : ScriptableObject
