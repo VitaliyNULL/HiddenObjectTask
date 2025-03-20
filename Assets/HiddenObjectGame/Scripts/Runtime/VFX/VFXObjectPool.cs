@@ -1,9 +1,11 @@
+using UnityEngine.AddressableAssets;
+
 namespace HiddenObjectGame.Runtime.VFX
 {
     public class VFXObjectPool : ObjectPool<VFXInstance>
     {
-        public VFXObjectPool(VFXInstance prefab, int initialSize = 5, int maxSize = 10, int growthRate = 1) : base(
-            prefab, initialSize, maxSize, growthRate)
+        public VFXObjectPool(AssetReference assetReference, int initialSize = 5, int maxSize = 10, int growthRate = 1) : base(
+            assetReference, initialSize, maxSize, growthRate)
         {
         }
 

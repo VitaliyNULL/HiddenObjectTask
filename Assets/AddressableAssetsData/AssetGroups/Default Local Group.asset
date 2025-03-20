@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: 39f970bbb54c1ae449f9bac7e84ad1de
+  m_SerializeEntries:
+  - m_GUID: 073bd5b92193bc549b7df9fe072b410d
+    m_Address: Assets/HiddenObjectGame/Prefabs/VFX/VFXInstance.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b24e73666f3645479cf1220f12891b8
+    m_Address: Assets/HiddenObjectGame/Prefabs/VFX/RibbonVFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35e38f1dcff5a06408fc3f32f21fe5f0
+    m_Address: Assets/HiddenObjectGame/Prefabs/HiddenObjects/PillowObject.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39812bf77a8144e4aa6116aad80f828a
+    m_Address: Assets/HiddenObjectGame/Prefabs/VFX/BootsVFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4065a2b855f62a24bb8c78b9932ccea0
+    m_Address: Assets/HiddenObjectGame/Prefabs/VFX/PillowVFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44ecb623b0dae8e42ae29c952ad0e9e0
+    m_Address: Assets/HiddenObjectGame/ArtResources/items/5_fix.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 509a12bad8d2e234ebe32932a2e41cda
+    m_Address: Assets/HiddenObjectGame/Prefabs/HiddenObjects/ToolBoxObject.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 540cfe9971cdd7b42ac4df6cb934fdf0
+    m_Address: Assets/HiddenObjectGame/Prefabs/VFX/AcornVFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b9b07b6824ba35468f71c0c9be16dd6
+    m_Address: Assets/HiddenObjectGame/Prefabs/VFX/ToolBoxVFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 679cebf31e51bac4ab4aaf32d8e33a36
+    m_Address: Assets/HiddenObjectGame/ArtResources/items/3_2_fix.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67a1a54506c1d3f4fb74e3c46861ff21
+    m_Address: Assets/HiddenObjectGame/ArtResources/bg-map-slices/01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a960826e285ddd4aa0143801d5799f6
+    m_Address: Assets/HiddenObjectGame/ArtResources/items/2_fix.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
+    m_Address: Assets/HiddenObjectGame/Scenes/GameScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91cb9ce8c38b2b3418f76e6283fc6805
+    m_Address: Assets/HiddenObjectGame/Prefabs/HiddenObjects/MushroomObject.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 960513b9659295548a9c26e6582523a5
+    m_Address: Assets/HiddenObjectGame/ArtResources/items/6_fix.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9abe9636008ff4642a15666cadd245c1
+    m_Address: Assets/HiddenObjectGame/Prefabs/HiddenObjects/BootsObject.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a241d6925e706234fbc5da857b3955ca
+    m_Address: Assets/HiddenObjectGame/Prefabs/HiddenObjects/HiddenObjectBase.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab6ab91e0ef007b42bac08a1ad74a8ec
+    m_Address: Assets/HiddenObjectGame/ArtResources/items/31_fix.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc1c769a8d0d0764cb6bc2946f59fa8c
+    m_Address: Assets/HiddenObjectGame/Prefabs/VFX/MushroomVFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eabc9bbe85b56894689672244f04b5d9
+    m_Address: Assets/HiddenObjectGame/Prefabs/HiddenObjects/AcornObject.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee11717bbe26f90419c3e6706d514d69
+    m_Address: Assets/HiddenObjectGame/Prefabs/HiddenObjects/RibbonObject.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8624d4b9dcc47e498a1d2a8ef3efaeb
+    m_Address: Assets/HiddenObjectGame/ArtResources/items/12_fix.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 841707b986fdf674b974d627002d305b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9783e6a7ded20b64fa7612ae15a65587, type: 2}
+    - {fileID: 11400000, guid: f383e565b0ec6044384c151beac7e065, type: 2}

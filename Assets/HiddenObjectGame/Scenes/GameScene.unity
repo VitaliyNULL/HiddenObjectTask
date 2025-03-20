@@ -1667,22 +1667,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c3c3b9ef6b406d922ba63bb480ef5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vfxInstances:
+  _vfxReferences:
     _serializedList:
     - Key: 0
-      Value: {fileID: 8408226738417722735, guid: 073bd5b92193bc549b7df9fe072b410d, type: 3}
+      Value:
+        m_AssetGUID: 073bd5b92193bc549b7df9fe072b410d
+        m_SubObjectName: 
+        m_SubObjectGUID: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
     - Key: 1
-      Value: {fileID: 3185066164763122564, guid: 540cfe9971cdd7b42ac4df6cb934fdf0, type: 3}
+      Value:
+        m_AssetGUID: 540cfe9971cdd7b42ac4df6cb934fdf0
+        m_SubObjectName: 
+        m_SubObjectGUID: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
     - Key: 2
-      Value: {fileID: 3236177083508411321, guid: 39812bf77a8144e4aa6116aad80f828a, type: 3}
+      Value:
+        m_AssetGUID: 39812bf77a8144e4aa6116aad80f828a
+        m_SubObjectName: 
+        m_SubObjectGUID: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
     - Key: 3
-      Value: {fileID: 8033329373964226163, guid: bc1c769a8d0d0764cb6bc2946f59fa8c, type: 3}
+      Value:
+        m_AssetGUID: bc1c769a8d0d0764cb6bc2946f59fa8c
+        m_SubObjectName: 
+        m_SubObjectGUID: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
     - Key: 4
-      Value: {fileID: 939479793814170971, guid: 4065a2b855f62a24bb8c78b9932ccea0, type: 3}
+      Value:
+        m_AssetGUID: 4065a2b855f62a24bb8c78b9932ccea0
+        m_SubObjectName: 
+        m_SubObjectGUID: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
     - Key: 5
-      Value: {fileID: 8848245470889795727, guid: 5b9b07b6824ba35468f71c0c9be16dd6, type: 3}
+      Value:
+        m_AssetGUID: 5b9b07b6824ba35468f71c0c9be16dd6
+        m_SubObjectName: 
+        m_SubObjectGUID: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
     - Key: 6
-      Value: {fileID: 7631436295716741043, guid: 0b24e73666f3645479cf1220f12891b8, type: 3}
+      Value:
+        m_AssetGUID: 0b24e73666f3645479cf1220f12891b8
+        m_SubObjectName: 
+        m_SubObjectGUID: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
 --- !u!4 &1181073585
 Transform:
   m_ObjectHideFlags: 0

@@ -46,7 +46,7 @@ namespace HiddenObjectGame.Runtime.HiddenObject.View
                 var startPos = transform.position;
                 var hiddenObjectUI = hiddenObjectCollectView.GetHiddenObjectUI(_viewModel.GetObjectType());
                 vfxService.SpawnVFX(type, startPos, hiddenObjectUI.GetTransform(),
-                    () => hiddenObjectUI.CompleteObjectCollection());
+                    () => hiddenObjectUI.CompleteObjectCollection()).Forget();
                 Destroy(gameObject);
             }
         }

@@ -37,7 +37,6 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
 
         private void OnInitialized(bool obj)
         {
-            Debug.Log("a");
             foreach (var keyValuePair in _hiddenObjectCollectViewModel.NeedToFoundObjects)
             {
                 IHiddenObjectEntityView spawnedObject = Instantiate(_hiddenObjectEntityViewPrefab, _content);
