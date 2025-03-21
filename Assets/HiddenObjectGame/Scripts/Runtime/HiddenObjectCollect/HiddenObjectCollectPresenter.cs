@@ -15,12 +15,12 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
         [SerializeField] private HiddenObjectSpriteContainer _hiddenObjectSpriteContainer;
         private IHiddenObjectCollectViewModel _hiddenObjectCollectViewModel;
         private List<IHiddenObjectEntityView> _hiddenObjectUIs = new List<IHiddenObjectEntityView>();
-
+        private IDisposable _disposable;
         [Inject]
         private void Construct(IHiddenObjectCollectViewModel hiddenObjectCollectViewModel)
         {
             _hiddenObjectCollectViewModel = hiddenObjectCollectViewModel;
-            hiddenObjectCollectViewModel.Initialized.Subscribe(OnInitialized);
+            _disposable = _hiddenObjectCollectViewModel.Initialized.Subscribe(OnInitialized);
         }
 
 
@@ -50,6 +50,11 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
                     throw new Exception("Sprite not found");
                 }
             }
+        }
+
+        private void OnDestroy()
+        {
+            _disposable?.Dispose();
         }
     }
 }

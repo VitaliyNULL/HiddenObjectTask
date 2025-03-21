@@ -1,3 +1,4 @@
+using System;
 using HiddenObjectGame.Runtime.HiddenObject;
 using TMPro;
 using UnityEngine;
@@ -41,5 +42,10 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
         }
 
         public Transform GetTransform() => transform;
+
+        private void OnDestroy()
+        {
+            _hiddenObjectCollectViewModel.OnFoundedObject -= OnFoundedObject;
+        }
     }
 }
