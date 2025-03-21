@@ -15,11 +15,15 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
         [SerializeField] private HiddenObjectSpriteContainer _hiddenObjectSpriteContainer;
         private IHiddenObjectCollectViewModel _hiddenObjectCollectViewModel;
         private List<IHiddenObjectEntityView> _hiddenObjectUIs = new List<IHiddenObjectEntityView>();
+        private HiddenObjectEntityViewFactory _hiddenObjectEntityViewFactory;
         private IDisposable _disposable;
+
         [Inject]
-        private void Construct(IHiddenObjectCollectViewModel hiddenObjectCollectViewModel)
+        private void Construct(IHiddenObjectCollectViewModel hiddenObjectCollectViewModel,
+            HiddenObjectEntityViewFactory hiddenObjectEntityViewFactory)
         {
             _hiddenObjectCollectViewModel = hiddenObjectCollectViewModel;
+            _hiddenObjectEntityViewFactory = hiddenObjectEntityViewFactory;
             _disposable = _hiddenObjectCollectViewModel.Initialized.Subscribe(OnInitialized);
         }
 
@@ -35,11 +39,12 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
             return hiddenObjectUI;
         }
 
-        private void OnInitialized(bool obj)
+        private async void OnInitialized(bool obj)
         {
             foreach (var keyValuePair in _hiddenObjectCollectViewModel.NeedToFoundObjects)
             {
-                IHiddenObjectEntityView spawnedObject = Instantiate(_hiddenObjectEntityViewPrefab, _content);
+                var spawnedObject =
+                    await _hiddenObjectEntityViewFactory.Create(Vector3.zero, Quaternion.identity, _content);
                 if (_hiddenObjectSpriteContainer.TryGetSprite(keyValuePair.Key, out Sprite sprite))
                 {
                     spawnedObject.SetData(_hiddenObjectCollectViewModel, sprite, keyValuePair.Key, keyValuePair.Value);

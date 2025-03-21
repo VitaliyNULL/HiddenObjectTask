@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47102bc30dbc872429ad70a18e94eb14
+    m_Address: Assets/HiddenObjectGame/Prefabs/UIObjects/HideObjectUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 509a12bad8d2e234ebe32932a2e41cda
     m_Address: Assets/HiddenObjectGame/Prefabs/HiddenObjects/ToolBoxObject.prefab
     m_ReadOnly: 0

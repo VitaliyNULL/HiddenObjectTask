@@ -20,7 +20,8 @@ namespace HiddenObjectGame.LoadingModule.Runtime.Infrastructure.Core
         public void Initialize()
         {
             Queue<ILoadingOperation> loadingOperations = new Queue<ILoadingOperation>();
-            loadingOperations.Enqueue(new LoadSceneOperation(_sceneLoader, SceneType.Gameplay));
+            ILoadingOperation loadGameplayOperation = new LoadSceneOperation(_sceneLoader, SceneType.Gameplay); ;
+            loadingOperations.Enqueue(new LoggerLoadingOperation(loadGameplayOperation));
             loadingOperations.Enqueue(new DelayOperation("Initializing scene...", 1f));
             _loadingController.Load(loadingOperations);
         }
