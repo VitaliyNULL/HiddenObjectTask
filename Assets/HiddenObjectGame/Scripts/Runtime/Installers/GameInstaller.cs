@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using HiddenObjectGame.Runtime.HiddenObject.View;
 using HiddenObjectGame.Runtime.HiddenObjectCollect;
 using HiddenObjectGame.Runtime.InputService;
+using HiddenObjectGame.Runtime.StateMachine;
+using HiddenObjectGame.Runtime.StateMachine.States;
 using HiddenObjectGame.Runtime.VFX;
 using UnityEngine;
 using Zenject;
@@ -25,6 +27,10 @@ namespace HiddenObjectGame.Runtime.Installers
             Container.BindInterfacesAndSelfTo<SaveLoadCollectModelService>().AsSingle();
             Container.BindInterfacesAndSelfTo<HiddenObjectCollectViewModel>().AsSingle()
                 .WithArguments(_hiddenObjectViews);
+            Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
+
+            SignalBusInstaller.Install(Container);
+            Container.DeclareSignal<ChangeStateSignal>().OptionalSubscriber();
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using HiddenObjectGame.Runtime.HiddenObjectCollect;
+using HiddenObjectGame.Runtime.StateMachine.States;
 using R3;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,28 +16,30 @@ namespace HiddenObjectGame.Runtime.EndGameUI
         [SerializeField] private Transform _popUp;
         [SerializeField] private float _duration = 1f;
         [SerializeField] private GameObject _bottomPanel;
-        private IDisposable _disposable;
         private Color _initialColor;
         private CancellationTokenSource _cancellationTokenSource;
-        private IHiddenObjectCollectViewModel _hiddenObjectCollectViewModel;
+        private SignalBus _signalBus;
 
         [Inject]
-        private void Construct(IHiddenObjectCollectViewModel hiddenObjectCollectViewModel)
+        private void Construct(SignalBus signalBus)
         {
-            _hiddenObjectCollectViewModel = hiddenObjectCollectViewModel;
+            _signalBus = signalBus;
             _initialColor = _image.color;
+            _signalBus.Subscribe<ChangeStateSignal>(Callback);
         }
 
         private void Awake()
         {
             Debug.Log("Awake");
             gameObject.SetActive(false);
-            _disposable = _hiddenObjectCollectViewModel.OnAllFounded.Subscribe((allFounded =>
-            {
-                if (allFounded) ShowPopUp().Forget();
-            }));
         }
-        
+
+        private void Callback(ChangeStateSignal obj)
+        {
+            if (obj.CurrentState.GetType() == typeof(EndGameState))
+                ShowPopUp().Forget();
+        }
+
         private async UniTaskVoid ShowPopUp()
         {
             _cancellationTokenSource = new CancellationTokenSource();
@@ -63,7 +66,7 @@ namespace HiddenObjectGame.Runtime.EndGameUI
 
         private void OnDestroy()
         {
-            _disposable?.Dispose();
+            _signalBus.TryUnsubscribe<ChangeStateSignal>(Callback);
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource?.Dispose();
         }

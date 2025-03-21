@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using HiddenObjectGame.Runtime.HiddenObject;
+using HiddenObjectGame.Runtime.StateMachine;
+using HiddenObjectGame.Runtime.StateMachine.States;
 using R3;
 using UnityEngine;
 using Zenject;
@@ -17,11 +19,13 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
         private List<IHiddenObjectEntityView> _hiddenObjectUIs = new List<IHiddenObjectEntityView>();
         private HiddenObjectEntityViewFactory _hiddenObjectEntityViewFactory;
         private IDisposable _disposable;
+        private GameStateMachine _gameStateMachine;
 
         [Inject]
         private void Construct(IHiddenObjectCollectViewModel hiddenObjectCollectViewModel,
-            HiddenObjectEntityViewFactory hiddenObjectEntityViewFactory)
+            HiddenObjectEntityViewFactory hiddenObjectEntityViewFactory, GameStateMachine gameStateMachine)
         {
+            _gameStateMachine = gameStateMachine;
             _hiddenObjectCollectViewModel = hiddenObjectCollectViewModel;
             _hiddenObjectEntityViewFactory = hiddenObjectEntityViewFactory;
             _disposable = _hiddenObjectCollectViewModel.Initialized.Subscribe(OnInitialized);
@@ -41,6 +45,7 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
 
         private async void OnInitialized(bool obj)
         {
+            if (!obj) return;
             foreach (var keyValuePair in _hiddenObjectCollectViewModel.NeedToFoundObjects)
             {
                 var spawnedObject =
@@ -55,6 +60,8 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
                     throw new Exception("Sprite not found");
                 }
             }
+
+            _gameStateMachine.ChangeState<GameState>();
         }
 
         private void OnDestroy()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Zenject;
 
 namespace HiddenObjectGame.Runtime.StateMachine
 {
@@ -8,10 +9,10 @@ namespace HiddenObjectGame.Runtime.StateMachine
         private readonly Dictionary<Type, IState> _states = new Dictionary<Type, IState>();
         private IState _currentState;
         public abstract void InitializeStateMachine();
-
-        public void AddState(IState state)
+        
+        public void AddState<T>(T state) where T : IState
         {
-            _states.Add(state.GetType(), state);
+            _states.Add(typeof(T), state);
         }
 
         public void Tick()
@@ -38,5 +39,6 @@ namespace HiddenObjectGame.Runtime.StateMachine
                 throw new Exception($"State of type {typeof(T)} not found in the state machine");
             }
         }
+        
     }
 }

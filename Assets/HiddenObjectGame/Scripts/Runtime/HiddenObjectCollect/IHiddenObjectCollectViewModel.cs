@@ -8,7 +8,6 @@ namespace HiddenObjectGame.Runtime.HiddenObjectCollect
     public interface IHiddenObjectCollectViewModel
     {
         public event Action<HiddenObjectType,int> OnFoundedObject;
-        public ReactiveProperty<bool> OnAllFounded { get; } 
 
         public ReactiveProperty<bool> Initialized { get; }
         public Dictionary<HiddenObjectType, int> NeedToFoundObjects { get; }

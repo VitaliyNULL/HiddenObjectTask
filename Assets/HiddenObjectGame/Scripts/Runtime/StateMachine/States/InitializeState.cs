@@ -1,14 +1,19 @@
+using Zenject;
+
 namespace HiddenObjectGame.Runtime.StateMachine.States
 {
-    public class InitializeState: BaseState
+    public class InitializeState : BaseState
     {
-        public InitializeState(IStateMachine stateMachine) : base(stateMachine)
+        private readonly SignalBus _signalBus;
+
+        public InitializeState(IStateMachine stateMachine, SignalBus signalBus) : base(stateMachine)
         {
+            _signalBus = signalBus;
         }
 
         public override void Enter()
         {
-            
+            _signalBus.Fire(new ChangeStateSignal(this));
         }
 
         public override void Exit()
